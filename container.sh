@@ -7,12 +7,16 @@ cat <<+ >>  config.sh
 #!/bin/sh
 echo " Configurando debootstrap segunda fase"
 sleep 3
-/debootstrap/debootstrap --second-stage
 
-echo "deb http://deb.debian.org/debian stretch main" > /etc/apt/sources.list
-echo "deb http://deb.debian.org/debian-security/ stretch/updates main" > /etc/apt/sources.list 
-echo "deb http://deb.debian.org/debian stretch main contrib non-free" > /etc/apt/sources.list
-echo "deb http://deb.debian.org/debian stretch-updates main contrib non-free" > /etc/apt/sources.list
+/debootstrap/debootstrap --second-stage
+rm /etc/apt/sources.list
+> /etc/apt/surces.list
+cat <<+ >> /etc/apt/surces.list
+deb http://deb.debian.org/debian stretch main
+deb http://deb.debian.org/debian-security/ stretch/updates main
+deb http://deb.debian.org/debian stretch main contrib non-free
+deb http://deb.debian.org/debian stretch-updates main contrib non-free
++
 echo "Reconfigurando parametros locales"
 sleep 1
 apt-get install locales

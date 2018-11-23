@@ -11,7 +11,7 @@ sleep 3
 /debootstrap/debootstrap --second-stage
 rm /etc/apt/sources.list
 > /etc/apt/surces.list
-cat <<+ >> /etc/apt/surces.list
+cat <<+ >> /etc/apt/sources.list
 deb http://deb.debian.org/debian stretch main
 deb http://deb.debian.org/debian-security/ stretch/updates main
 deb http://deb.debian.org/debian stretch main contrib non-free
